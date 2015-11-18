@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta name="theme-color" content="#3B58B4">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Powered by Smuradio</title>
+	<!-- 站点显示标志 -->
+	<link rel="shortcut icon" type="image/ico" href="uri" />
+	<link rel="stylesheet" href="css/style.css" media="screen" >
+	<link rel="stylesheet" href="css/md-icons.css">
+	<link href="css/mfb.css" rel="stylesheet">
+	<!-- Web字体库调用 >
+	<link href='https://fonts.useso.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css' -->
+	<!-- 外部脚本加载 -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mfb.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<div class='bodywrap'>
+		<div class="browse">
+			<article class="announcement">
+				<p class="loadingindicator">—— Loading ——</p>
+			</article>
+			<main class="main-page">
+				<p class="loadingindicator">—— Loading ——</p>
+			</main>
+		</div>
+		<!-- 底部悬浮按钮 -->
+		<ul id="menu" class="mfb-component--br mfb-zoomin" data-mfb-toggle="hover">
+			<li class="mfb-component__wrap">
+				<a href="javascript: void(0);" class="mfb-component__button--main">
+					<i class="mfb-component__main-icon--resting mdi mdi-plus"></i>
+					<i class="mfb-component__main-icon--active mdi mdi-plus"></i>
+				</a>
+				<ul class="mfb-component__list">
+					<li>
+						<button type="button" id='findbtn' data-mfb-label="寻物启事发布" class="mfb-component__button--child mfd-saffron">
+						<i class="mdi mdi-help mfb-icon"></i></button>
+					</li>
+					<li>
+						<button type="button" id='pickbtn' data-mfb-label="我要点歌" class="mfb-component__button--child mfd-green">
+						<i class="mdi mdi-music-note mfb-icon"></i></button>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<footer>
+		<nav class="footer-copyright-bg">
+			<p class="f-copyright-li"><a href="#">&copy; 2015 Inside-Yume, All rights reserved.</a></p>
+			<p class="f-copyright-li">Created by <a href="#">qwe7002</a> | <a href="https://github.com/AddamsNode" target='_blank'>Addams_Chen</a> | <a href="http://classicoldsong.me" target='_blank'>ClassicOldSong</a></p>
+		</nav>
+	</footer>
+	<header>
+		<nav class="default-nav">
+			<div class="logo">
+				<p><a href="#" id="logo_" class="logo">Powered by Smuradio</a></p>
+			</div>
+		</nav>
+	</header>
+	<!-- 弹窗全屏盖罩 -->
+	<div class="overlay pick">
+		<div class="overlay-z bg"></div>
+		<div id="modulepick" class="module-mfb">
+			<div class="form-module-text">
+				<h1>我要点歌</h1>
+				<button type="button" id='songsearch' class="songsearch-btn">歌曲搜索</button>
+				<label for="sendername">点歌人:</label>
+				<input type="text" id="sendername" name="sendername" class="song-name" placeholder="点歌人姓名">
+				<label for="playdate">播放日期</label>
+				<input type="date" id="playdate" name="name">
+				<label for="playtime">播出时间</label>
+				<select class="settingInput" id="playtime">
+					<option value="中午">中午</option>
+					<option value="下午">下午</option>
+				</select>
+				<label for="toname">送给:</label>
+				<input type="text" id="toname" name="toname" class="name" placeholder="想送给的人的姓名">
+				<label for="sendmessage">我想对TA说:</label>
+				<input type="text" id="sendmessage" name="textarea" maxlength="140" class="textarea" placeholder="赠言or寄语">
+				<input type="button" value="取消" class="cancelbtn box module-action-r">
+				<input id="submitSong" type="button" value="提交" class="module-action-r submitbtn">
+			</div>
+		</div>
+	</div>
+	<div class="overlay lost">
+		<div class="overlay-z bg"></div>
+		<div id="modulelost" class="module-mfb">
+			<div class="form-module-text">
+				<h1>寻物启事</h1>
+				<label for="getname">姓名:</label>
+				<input type="text" id="getname" name="getname" class="song" placeholder="丢失者姓名">
+				<label for="contactinfo">联系方式:</label>
+				<input type="number" id="contactinfo" name="contactinfo" class="name" placeholder="电话号码">
+				<label for="iteminfo">详细信息:</label>
+				<input type="text" id="iteminfo" name="iteminfo" class="textarea" placeholder="物品详细描述">
+				<input type="button" value="取消" class="cancelbtn box module-action-r">
+				<input id="submitLost" type="button" value="提交" class="module-action-r submitbtn">
+			</div>
+		</div>
+	</div>
+	<div class="overlay song">
+		<div id='searchwrap' class="overlay-z"></div>
+		<div id="modulesearch" class="module-mfb">
+			<div class="form-module-text">
+				<h1>歌曲搜索</h1>
+				<input id='titleinput' type="search" name="name" placeholder="请输入歌曲名称">
+				<ul class='resultlist'></ul>
+				<input type="button" value="取消" id="cancelbtn-search" class="cancelbtn module-action-r">
+				<input type="button" id="searchsong" value="搜索" class="module-action submitbtn">
+			</div>
+		</div>
+	</div>
+	<div class="toastwrap">
+		<div class="toast">null</div>
+	</div>
+</body>
+</html>
